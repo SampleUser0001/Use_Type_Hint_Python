@@ -1,17 +1,15 @@
-# Template Python on Docker
+# Use Type hint
 
-## 使い方
+Type Hintを使ってみる。
+※mypyが必要。
 
-1. Dockerfileのimageを変更する。
-2. 必要に応じてDockerfileにpipを書く。
-3. 必要に応じてdocker-compose.ymlを修正する。
-4. 下記実行。
-    ``` sh
-    docker-compose build
-    docker-compose up
-    ```
+## 実行
+
+``` sh
+docker-compose up --build
+```
 
 ## 参考
 
-- [Qiita:Docker を使う（python のイメージで色々確認してみる）](https://qiita.com/landwarrior/items/fd918da9ebae20486b81)
-- [Future Tech Blog:仕事でPythonコンテナをデプロイする人向けのDockerfile (1): オールマイティ編](https://future-architect.github.io/articles/20200513/)
+- [Type hints cheat sheet (Python 3):mypy](https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html)
+- [実践！！Python型入門(Type Hints):Qiita](https://qiita.com/papi_tokei/items/2a309d313bc6fc5661c3)
