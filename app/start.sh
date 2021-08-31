@@ -3,4 +3,5 @@
 export PYTHON_APP_HOME=`pwd`
 
 cd src
-python app.py
+mypy app.py
+# python app.py

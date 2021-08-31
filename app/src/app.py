@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from logging import getLogger, config, StreamHandler, DEBUG
 import os
+from typing import List, Dict, Any, Optional
 
 import sys
 sys.path.append('./')
@@ -11,7 +12,10 @@ from util import Util
 
 PYTHON_APP_HOME = os.getenv('PYTHON_APP_HOME')
 logger = getLogger(__name__)
-log_conf = LogUtil.get_log_conf(PYTHON_APP_HOME + '/config/log_config.json')
+
+# なんでこれエラーなんだ？
+log_conf: Dict[Any, Any] = LogUtil.get_log_conf(PYTHON_APP_HOME + '/config/log_config.json')
+
 config.dictConfig(log_conf)
 handler = StreamHandler()
 handler.setLevel(DEBUG)
@@ -20,13 +24,24 @@ logger.addHandler(handler)
 logger.propagate = False
 
 if __name__ == '__main__':
-  tmp_list = []
+  i: int = 10
+  b: bool = True
+  s: str = 'hoge'
+  f: float = 1.2
+  d: dict = {}
+  
+  # これはエラー。
+  i = 'error'
+  
+  tmp_list: List[str] = []
   tmp_list.append('hoge')
   tmp_list.append('piyo')
 
   Util.print_array(tmp_list)
   
+  # エラー。strをappendしたにも関わらず、intをappendしている。
   tmp_list.append(1)
+
   Util.print_array(tmp_list)
   
   # .envの取得
