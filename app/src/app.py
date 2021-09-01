@@ -9,6 +9,7 @@ from logutil import LogUtil
 from importenv import ImportEnvKeyEnum
 import importenv as setting
 from util import Util
+from dataclass import User, User2
 
 PYTHON_APP_HOME = os.getenv('PYTHON_APP_HOME')
 logger = getLogger(__name__)
@@ -44,5 +45,14 @@ if __name__ == '__main__':
 
   Util.print_array(tmp_list)
   
+  # これはエラーにならない。
+  user: User = User(name='hoge', age=20)
+  # こっちはエラー。
+  user2: User2 = User(name='hoge', age=20)
+
+  Util.print_user(user)
+  # これもエラー。
+  Util.print_user(user2)
+
   # .envの取得
   # setting.ENV_DIC[ImportEnvKeyEnum.importenvに書いた値.value]

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from typing import List
+from dataclass import User
 
 class Util:
   @staticmethod
@@ -7,3 +8,6 @@ class Util:
     for i in range(len(v)):
       print("%d : %s" % (i, v[i]))
   
+  @staticmethod
+  def print_user(user: User) -> None:
+    print("name : %s , age : %d" % (user.name, user.age))
